@@ -20,7 +20,7 @@ __InitialDir=$PWD
 __RootfsDir="$__InitialDir"
 
 case $1 in
-	x86|x86_64)
+	x86|x86_64|riscv64)
 		__BuildArch=$1
 		;;
 	x86h)
@@ -104,7 +104,7 @@ fi
 mkdir -p "$__RootfsDir/tmp"
 if [ ! -e "$__RootfsDir/tmp/haiku/.git" ]; then
 	cd "$__RootfsDir/tmp"
-	git clone "$__HaikuRepo"
+	git clone --filter=blob:none "$__HaikuRepo"
 	cd haiku && git remote add review https://review.haiku-os.org/haiku && git fetch --tags review
 else
 	echo "WARN: skipping clone of haiku repo, already exists"
