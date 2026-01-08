@@ -1,7 +1,7 @@
-From 8e9fed3307f345e1c8cd9f630a83004ecdcefa6e Mon Sep 17 00:00:00 2001
-From: Jessica Hamilton <jessica.l.hamilton@gmail.com>
-Date: Thu, 12 Sep 2024 23:47:36 +0000
-Subject: [PATCH 3/4] build: add an optional UserProfileConfig.
+From 297324eeb3db55fc803a0cb7044f6b73871a8d65 Mon Sep 17 00:00:00 2001
+From: LekKit <50500857+LekKit@users.noreply.github.com>
+Date: Thu, 8 Jan 2026 09:02:43 +0200
+Subject: [PATCH] build: add an optional UserProfileConfig.
 
 Like UserBuildConfig, but read before the rules are loaded,
 allowing HAIKU_BUILD_PROFILE to be overridden to use a given
@@ -30,7 +30,7 @@ index f242565d9c..ede46729e3 100644
  # parent directory.)
  #
 diff --git a/build/jam/CommandLineArguments b/build/jam/CommandLineArguments
-index 26259bdc4c..8208570d51 100644
+index 9072824e80..5facefbc11 100644
 --- a/build/jam/CommandLineArguments
 +++ b/build/jam/CommandLineArguments
 @@ -4,7 +4,7 @@ rule ProcessCommandLineArguments
@@ -39,9 +39,9 @@ index 26259bdc4c..8208570d51 100644
  	HAIKU_ORIGINAL_JAM_TARGETS = $(JAM_TARGETS) ;
 -	HAIKU_BUILD_PROFILE = ;
 +	HAIKU_BUILD_PROFILE ?= ;
- 	if $(JAM_TARGETS) {
- 		switch $(JAM_TARGETS[1]) {
- 			# If the target to be built is "all" (i.e. the default) and we're in
+ 
+ 	if ! $(JAM_TARGETS) {
+ 		Exit "Error: No targets specified!" ;
 -- 
-2.25.1
+2.52.0
 
