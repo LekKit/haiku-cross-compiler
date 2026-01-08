@@ -220,7 +220,7 @@ EOF
 chmod +x "$__RootfsDir/fetch_packages.sh"
 
 # Clean up
-rm -rf "$__RootfsDir/tmp/" "$__RootfsDir/generated/objects/haiku/" "$__RootfsDir/generated/objects/common"
+rm -rf "$__RootfsDir/tmp/haiku" "$__RootfsDir/tmp/buildtools" "$__RootfsDir/generated/objects/haiku/" "$__RootfsDir/generated/objects/common"
 rm -rf "$__RootfsDir/generated/attributes/" "$__RootfsDir/generated/download/" "$__RootfsDir/generated/build_packages/"
 
 # And done!
