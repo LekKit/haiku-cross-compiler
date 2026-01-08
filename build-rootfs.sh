@@ -121,7 +121,7 @@ fi
 # Fetch some patches that haven't been merged yet
 cd "$__RootfsDir/tmp/haiku"
 git reset --hard review/master
-git am "$__InitialDir/0001-build-add-an-optional-UserProfileConfig.patch"
+EMAIL=root@localhost git am "$__InitialDir/0001-build-add-an-optional-UserProfileConfig.patch"
 
 # Build jam
 echo 'Building jam buildtool'
