@@ -1,0 +1,20 @@
+#
+# To clean up the repo, run `git clean -Xdf`
+# NOTE: This is destructive and will wipe anything besides the source tree!
+#
+
+# Ignore everything in the root directory, whitelist stuff later
+/*/
+/*
+
+# Explicitly track build system
+!/Dockerfile
+!/build-rootfs.sh
+!/*.patch
+
+# Explicitly track repository metadata
+!/README*
+!/LICENSE*
+!/.mailmap
+!/.gitignore
+!/.clang-format
