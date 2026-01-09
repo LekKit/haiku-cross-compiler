@@ -1,8 +1,8 @@
 # Example: podman build --build-arg HAIKU_CROSS_COMPILER_ARCH=riscv64 --tag haiku-cross-compiler:riscv64 .
 
-ARG HAIKU_CROSS_COMPILER_ARCH=x86_64
-
 FROM ubuntu
+
+ARG HAIKU_CROSS_COMPILER_ARCH=x86_64
 
 # Because FUCKING docker can't even ship an image with working network out of the box
 RUN apt-get update && apt-get install -y --no-install-recommends --reinstall ca-certificates
