@@ -16,7 +16,7 @@ RUN cd haiku-cross-compiler && ./build-rootfs.sh ${HAIKU_CROSS_COMPILER_ARCH} --
 RUN ln -sf /boot/system /system
 
 # Install cross-compiler into /boot/system (Otherwise it doesn't work without extra args)
-RUN cp -r /generated/cross-tools-${HAIKU_CROSS_COMPILER_ARCH}/* /boot/system/
+RUN cp -r /generated/cross-tools-*/* /boot/system/
 
 # Install Haiku tools (package & jam) into the host
 RUN mv /bin/jam /boot/system/bin/
@@ -24,7 +24,7 @@ RUN cp /generated/objects/linux/*/release/tools/package/package /usr/bin/
 RUN cp /generated/objects/linux/lib/* /usr/lib/
 
 # Symlink cross-compiler toolchain into the host
-RUN bash -c "ln -sf /boot/system/bin/${HAIKU_CROSS_COMPILER_ARCH}-unknown-haiku-* /usr/bin/"
+RUN bash -c "ln -sf /boot/system/bin/*-unknown-haiku-* /usr/bin/"
 
 # Cleanup
 RUN rm -rf /generated
