@@ -4,6 +4,7 @@ set -e
 
 usage()
 {
+	echo "Invalid args: $@"
 	echo "Usage: $0 BuildArch [--jobs <N>] [--rootfsdir <directory>] [--haiku-repo <uri>] [--bt-repo <uri>] [-- {extra args}]"
 	echo "BuildArch can be: x86, x86_64, x86h, x86_gcc2h, riscv64"
 	echo "--rootfsdir dir   - defaults to the current dir, where to"
